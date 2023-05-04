@@ -15,14 +15,14 @@
 
 메뉴 영역에서 메뉴 1과 메뉴 2를 누르면 화면 영역에 알맞은 내용이 출력된다. 또한 화면은 공통 버튼을 한 개 가지며, 그 버튼이 눌릴 때 마다 화면 영역의 데이터가 변경된다.
 
-![Untitled](Chap%2001%20-%20%E1%84%83%E1%85%B3%E1%86%AF%E1%84%8B%E1%85%A5%E1%84%80%E1%85%A1%E1%84%80%E1%85%B5%20b3fa51ee61a74748bcc926ce90db007b/Untitled.png)
+![image](https://user-images.githubusercontent.com/67476544/236127051-235c6db9-7d7e-4e08-b880-26bebf1c2bb6.png)
 
 최초의 코드를 아래와 같이 작성해볼 수 있다.
 
 ```java
 
 public class Application implements OnClickListner{
-	
+
 	private Menu menu1 = new Menu("menu1");
 	private Menu menu2 = new Menu("menu2");
 	private Button button1 = new Button("button1");
@@ -59,7 +59,7 @@ public class Application implements OnClickListner{
 			System.out.println("메뉴 2로 전환");
 		}
 		private void processButtonWhenMenu1() {
-			
+
 			System.out.println("메뉴 1 화면의 버튼 1 처리");
 		}
 		private void processButton1WhenMenu2() {
@@ -69,11 +69,11 @@ public class Application implements OnClickListner{
 
 ```
 
-위 코드는 두 메뉴와 한 버튼에서 이벤트가 발생하면 그 이벤트를 `clicked()` 메서드에서 처리한다. 
+위 코드는 두 메뉴와 한 버튼에서 이벤트가 발생하면 그 이벤트를 `clicked()` 메서드에서 처리한다.
 
 cliked() 메서드를 누가 발생 시켰는지에 따라 if-else 블록에서 이벤트를 처리한다.
 
-`menu1` 이 눌리면 메뉴 1 화면으로 전환하고, `menu2` 가 눌리면 메뉴 2 화면으로 전환한다. 
+`menu1` 이 눌리면 메뉴 1 화면으로 전환하고, `menu2` 가 눌리면 메뉴 2 화면으로 전환한다.
 
 `button1`이 눌렸을 때 메뉴 1화면이냐 메뉴 2화면이냐에 따라 다른 동작을 구현하기 위해 현재 화면이 어딘지 나타내는 `currentMenu` 필드에 현재 화면을 저장하고 있다.
 
@@ -113,11 +113,11 @@ button1의 처리 구조와 완전히 동일한 구조이고, 만약 메뉴 3이
 
 ---
 
-같은 상황을 객체 지향 방식으로 풀어보자. 
+같은 상황을 객체 지향 방식으로 풀어보자.
 
 객체 지향에서는 추상화와 다형성을 이용해 변화되는 부분을 관리한다.
 
-최초 상황인 메뉴 1, 메뉴 2, 버튼 1이 존재하는 상태에서 시작해보자. 
+최초 상황인 메뉴 1, 메뉴 2, 버튼 1이 존재하는 상태에서 시작해보자.
 
 먼저 설계를 해보자.
 
@@ -128,7 +128,7 @@ button1의 처리 구조와 완전히 동일한 구조이고, 만약 메뉴 3이
 2. 버튼 1을 클릭하면 선택된 메뉴 화면에서 알맞은 처리를 한다.
 ```
 
-메뉴 3이나 메뉴 4가 추가되더라도 위 내용은 동일하게 동작한다. 
+메뉴 3이나 메뉴 4가 추가되더라도 위 내용은 동일하게 동작한다.
 
 즉, 모든 메뉴에 대해 아래와 같은 동작이 행해진다.
 
@@ -146,7 +146,7 @@ public interface ScreenUI{
 }
 ```
 
-ScreenUI 의 show() 메서드는 어떤 메뉴 버튼이 클릭될 때 실행되는 메서드이다. 
+ScreenUI 의 show() 메서드는 어떤 메뉴 버튼이 클릭될 때 실행되는 메서드이다.
 
 handleButton1Click() 메서드는 버튼 1이 눌렸을 때 실행된다.
 
@@ -155,7 +155,7 @@ handleButton1Click() 메서드는 버튼 1이 눌렸을 때 실행된다.
 ```java
 public class Menu1ScreenUI implements ScreenUI {
 	public void show() { Systempout.println("메뉴 1로 전환" ); }
-	public void handleButtonClick() { 
+	public void handleButtonClick() {
 												Systempout.println("메뉴 1 화면의 버튼 처리);
 					}
 
@@ -163,7 +163,7 @@ public class Menu1ScreenUI implements ScreenUI {
 
 public class Menu2ScreenUI implements ScreenUI {
 	public void show() { Systempout.println("메뉴 2로 전환" ); }
-	public void handleButtonClick() { 
+	public void handleButtonClick() {
 												Systempout.println("메뉴 1 화면의 버튼 처리);
 					}
 
@@ -174,13 +174,13 @@ public class Menu2ScreenUI implements ScreenUI {
 
 ```java
 public class Application implements OnClickListener{
-		
+
 		private Menu menu1 = new Menu("menu1");
 		private Menu menu2 = new Menu("menu2");
 		private Button button1 = new Menu("button1");
 
 		private ScreenUI currentScreen = null;
-		
+
 		public Application() {
 			menu1.setOnClickListener(this);
 			menu2.setOnClickListener(this);
@@ -232,9 +232,9 @@ menu1을 클릭하면 `currentScreen`에 `MenuScreenUI` 객체가 할당된다.
 메뉴는 메뉴가 추가되거나 삭제될 때 변경되고, 버튼은 버튼이 추가되거나 삭제될 때 변경되므로, 서로 다른 역할을 하는 코드가 한 메서드에 섞여있으면 유지보수가 어려워지므로 메뉴 클릭 처리 코드와 버튼 클릭 처리 코드를 분리하자.
 
 ```java
-private OnclickListener menuListener = 
+private OnclickListener menuListener =
 	new OnClickListener() {
-		public void clicked(Component eventSource) { 
+		public void clicked(Component eventSource) {
 			String sourceId = eventSource.geId();
 			if(sourceId.equals("menu1")) {
 				currentScreen = new Menu1ScreenUI();
@@ -251,7 +251,7 @@ private OnClickListener buttonListener = new OnClickListener() {
 			if( currentScreen ==null) return;
 
 		else if (source.equals("button1")) {
-			currentSceen.handleButton1Click(); 
+			currentSceen.handleButton1Click();
 			}
 		}
 	}
@@ -275,10 +275,10 @@ ScreenUI 인터페이스가 변경되었으므로 Menu1ScreenUI 와 Menu2ScreenU
 ```java
 public class Menu1ScreenUI implements ScreenUI {
 	public void show() { Systempout.println("메뉴 1로 전환" ); }
-	public void handleButton1Click() { 
+	public void handleButton1Click() {
 												Systempout.println("메뉴 1 화면의 버튼1 처리);
 					}
-	public void handleButton2Click() { 
+	public void handleButton2Click() {
 												Systempout.println("메뉴 1 화면의 버튼2 처리);
 					}
 
@@ -286,27 +286,27 @@ public class Menu1ScreenUI implements ScreenUI {
 
 public class Menu2ScreenUI implements ScreenUI {
 	public void show() { Systempout.println("메뉴 2로 전환" ); }
-	public void handleButton1Click() { 
+	public void handleButton1Click() {
 												Systempout.println("메뉴 2 화면의 버튼1 처리);
 					}
-	public void handleButton2Click() { 
+	public void handleButton2Click() {
 												Systempout.println("메뉴 2 화면의 버튼2 처리);
 					}
 
 	}
 ```
 
-앞서 Application 클래스에 모든 코드를 작성했을 때는 메뉴1, 메뉴2 관련 코드가 한 소스코드에 섞여있었다. 
+앞서 Application 클래스에 모든 코드를 작성했을 때는 메뉴1, 메뉴2 관련 코드가 한 소스코드에 섞여있었다.
 
 따라서 메뉴 1에 대한 코드를 수정하려면 Applciation 소스코드를 수정해야하고, 메뉴의 개수가 증가할수록 소스 위치를 찾는 시간이 길어지게 되고 개발 시간이 불필요하게 증가된다.
 
 Applicatioin 에서 모든 걸 구현했던 방식과 달리 ScreenUI 로 구현한 두 번재 방식은 작성하는 클래스 개수가 증가했지만, 아래 그림 처럼 메뉴 관련 코드들이 알맞게 분리되었다.ㅇ
 
-![Untitled](Chap%2001%20-%20%E1%84%83%E1%85%B3%E1%86%AF%E1%84%8B%E1%85%A5%E1%84%80%E1%85%A1%E1%84%80%E1%85%B5%20b3fa51ee61a74748bcc926ce90db007b/Untitled%201.png)
+![image](https://user-images.githubusercontent.com/67476544/236127084-9b3ca892-c5f3-4171-b232-60a9bf982cd4.png)
 
 위 방식에서 Menu1ScreenUI 에 관련된 코드는 모두 Menu1ScrrenUI 에 있다.
 
-메뉴 1을 수정하는데 메뉴 2를 볼 필요가 없는 것이다. 
+메뉴 1을 수정하는데 메뉴 2를 볼 필요가 없는 것이다.
 
 또한 첫번째 방식에서는 버튼 종류가 추가될 때 마다 추가된 버튼이 메뉴를 변경하는 if-else 블록이 추가되었지만**(메뉴의 개수 만큼)**, 두 번째 방식에서는 button2에 대한 처리를 해주는 코드만 작성해주면 된다.
 
@@ -322,7 +322,7 @@ public class Menu3ScreenUI implements ScrrenUI {
 	public void handleButton1click() {
 		System.out.println("메뉴 3화면의 버튼 1 처리");
 		}
-	
+
 	public void handleButton1click() {
 		System.out.println("메뉴 3화면의 버튼 2 처리");
 		}
@@ -333,23 +333,23 @@ public class Menu3ScreenUI implements ScrrenUI {
 
 ```java
 public class Application implements OnClickListener{
-		
+
 		private Menu menu1 = new Menu("menu1");
 		private Menu menu2 = new Menu("menu2");
 		private Menu menu3 = new Menu("menu3");
 		private Button button1 = new Menu("button1");
 
 		private ScreenUI currentScreen = null;
-		
+
 		public Application() {
 			menu1.setOnClickListener(this);
 			menu2.setOnClickListener(this);
 			menu3.setOnClickListener(this);
 			button1.setOnClickListener(this);
 
-	private OnclickListener menuListener = 
+	private OnclickListener menuListener =
 		new OnClickListener() {
-			public void clicked(Component eventSource) { 
+			public void clicked(Component eventSource) {
 				String sourceId = eventSource.geId();
 				if(sourceId.equals("menu1")) {
 					currentScreen = new Menu1ScreenUI();
@@ -369,10 +369,10 @@ private OnClickListener buttonListener = new OnClickListener() {
 			if( currentScreen ==null) return;
 
 			if (source.equals("button1")) {
-			currentSceen.handleButton1Click(); 
+			currentSceen.handleButton1Click();
 			}
 			else if (source.equals("button2")) {
-			currentSceen.handleButton2Click(); 
+			currentSceen.handleButton2Click();
 			}
 		}
 	}
