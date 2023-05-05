@@ -7,8 +7,6 @@
 
 </aside>
 
- 
-
 ### 1.1 노드의 구조
 
 ---
@@ -38,7 +36,7 @@ typedef struct LinkedListNodeType {
 
 1.1 에서는 연결리스트의 자료 저장 단위인 노드를 정의했다. 이 노드를 이용해 연결 리스트를 정의해보자.
 
-**헤더노드**란, 실제 자료를 저장하는 노드가 아닌 다음 노드에 대한 링크를 저장하는 노드다. 즉, 다음 노드로 연결하기 위해 사용하는 더미 노드인것이다. 따라서 헤더 노드 자체에는 저장하는 자료가 없다. 
+**헤더노드**란, 실제 자료를 저장하는 노드가 아닌 다음 노드에 대한 링크를 저장하는 노드다. 즉, 다음 노드로 연결하기 위해 사용하는 더미 노드인것이다. 따라서 헤더 노드 자체에는 저장하는 자료가 없다.
 
 그래서 헤더노드의 pLink는 NULL을 가리킨다.
 
@@ -82,7 +80,7 @@ createList()는 동적으로 노드를 생성해서 추가한다.
 
 연결리스트의 두 번째 노드에 접근해 저장된 자료의 값을 가져온다고 가정해보자.
 
-값 가져오기에서 핵심은 **“헤더 노드에서 시작해 인덱스만큼 다음 노드로 이동”**이다. 
+값 가져오기에서 핵심은 **“헤더 노드에서 시작해 인덱스만큼 다음 노드로 이동”**이다.
 
 예를들어 인덱스가 0인 경우, 즉 첫번째 자료의 경우를 생각해보자. 헤더 노드 바로 다음의 자료이므로, 헤더 너드 링크를 따라 한 번 이동하면 된다.
 
@@ -103,17 +101,17 @@ int getLinkedListData(LinkedList* pList, int position) {
 
 값을 가져오는 getLinkedListData함수이다. 인수로 전달받는 position은 값을 가져오려고 하는 노드의 인덱스 번호이다.만약 0이라면 다음 노드로 한 번 이동하면 된다. 1이라면 헤더 노드의 다음다음 노드로, 2라면 다음다음다음 노드로 이동해야 한다.
 
-1번에서 구조체 pList의 멤버변수인 헤더 노드를 가리키게 된다. 다음으로 연산자 우선순위에 따라 주소 연산자가 수행되어 헤더 노드 변수 pList→headerNode의 주솟값이 추출되고, 대입 연산자에 의해 주솟값이 포인터 변수 pCurrentNode에 저장된다. 
+1번에서 구조체 pList의 멤버변수인 헤더 노드를 가리키게 된다. 다음으로 연산자 우선순위에 따라 주소 연산자가 수행되어 헤더 노드 변수 pList→headerNode의 주솟값이 추출되고, 대입 연산자에 의해 주솟값이 포인터 변수 pCurrentNode에 저장된다.
 
 이후 for문을 보자. 인덱스 position +1 만큼 노드의 링크를 이용해 다음 노드로 이동한다. position의 값이 0 이면 for 문 조건에 따라 for 문 내부가 실행된다. pCurrentNode는 헤더 노드의 링크가 가리키는 노드를 가리키게 된다.
 
-만약 position 이 1이면 for문이 두 번 실행 되면서 pCurrentNode가 두 번째 노드를 가리킨다. 
+만약 position 이 1이면 for문이 두 번 실행 되면서 pCurrentNode가 두 번째 노드를 가리킨다.
 
 ### 2.3 새로운 자료의 추가
 
 ---
 
-연결리스트에다 새로운 자료를 추가하는 과정을 알아보자. 
+연결리스트에다 새로운 자료를 추가하는 과정을 알아보자.
 
 10,20 다음에 새로운 자료 30을 추가해보겠다.
 
@@ -126,7 +124,7 @@ int getLinkedListData(LinkedList* pList, int position) {
 
 새로운 노드 생성부터 알아보자
 
-![Untitled](3%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%AF%E1%84%85%E1%85%B5%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%2089e117b9e88747f19caec6d2de75c5f3/Untitled.png)
+<img width="430" alt="image" src="https://user-images.githubusercontent.com/67476544/236379474-573c0526-06c2-4dbc-9be1-0f7b81d1e0fa.png">
 
 **새로운 노드 생성**
 
@@ -134,17 +132,16 @@ int getLinkedListData(LinkedList* pList, int position) {
 
 **다음 노드 처리**
 
-연결리스트에서는 새로 추가한 노드의 다음 노드로 기존 위치의 노드를 지정한다. 
+연결리스트에서는 새로 추가한 노드의 다음 노드로 기존 위치의 노드를 지정한다.
 
-![Untitled](3%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%AF%E1%84%85%E1%85%B5%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%2089e117b9e88747f19caec6d2de75c5f3/Untitled%201.png)
-
+<img width="446" alt="image" src="https://user-images.githubusercontent.com/67476544/236379496-8722f060-3903-409e-9594-aa7328dd74ec.png">
 추가한 30의 다음 노드는 원래 추가하려는 위치의 노드 20이다.
 
 **이전 노드의 처리**
 
 연결리스트의 노드는 오직 다음 노드에 대한 링크만 가지고 있다. 이전 노드인 노드 10의 다음 노드로 30 노드를 새로 추가하였다. 따라서 이전 노드인 10의 링크는 30에 대한 링크를 가져야 한다.
 
-![Untitled](3%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%AF%E1%84%85%E1%85%B5%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%2089e117b9e88747f19caec6d2de75c5f3/Untitled%202.png)
+<img width="548" alt="image" src="https://user-images.githubusercontent.com/67476544/236379519-5cfbda72-4be9-40d9-ab5d-713575619e2c.png">
 
 연결리스트를 추가하는 addLinkedListData()의 코드를 보자
 
@@ -153,23 +150,23 @@ int addLinkedListData(LinkedList * plist, int position int data){
     int i = 0;
     LinkedListNode *pNewNode = NULL;
     LinkedListNode *pPreNode = NULL;
-    
+
     pNewnode = (LinkedListNode * )malloc(sizeof(LinedListNode));
     pNewNode->data = data;
-    
+
     pPreNode = &(plist->headerNode);
     for(i=0;i<position;i++){
         pPreNode = pPreNode->pLink;
     }
-    
+
     pNewNode->pLink = pPreNode->pLink; //다음 노드 처
     pPreNode->pLink = pNewNode;//이전 노드 처리
-    
+
     pList->currentNcount++;// 현재 노드 증가
     return 0;
 ```
 
-연결리스트의 노드를 생성하고, 링크를 NULL로 초기화한다. pPreNode라는 이전 노드가 헤더노드의 주소 값을 가진다. 
+연결리스트의 노드를 생성하고, 링크를 NULL로 초기화한다. pPreNode라는 이전 노드가 헤더노드의 주소 값을 가진다.
 
 for문을 position 의 숫자만큼 돈다. 반복문에서 이전 노드가 이전노드의 링크가 가리키는 값을 가리키게된다.
 
@@ -188,19 +185,19 @@ int removeLinkedListData(LinkedList* pList, int positioin){
     int i =0;
     LinkedListNode *pDelNode = NULL;
     LinkedListNode *pPreNode = NULL;
-    
+
     pPreNode = &(pList->headerNode);
     for(i=0;i<positioin;i++){
         pPreNode = pPreNode->pLinkl;
     }
-    
+
     pDelNode = pPreNode -> pLink;//제거하려논 노드 지정,이전 노드가 가리키는 값
     pPreNode -> pLink = pDelNode->pLink;//이전 노드 처리
-    
+
     free(pDelNode);
     pList->currentCount--;
     return 0;
-    
+
 }
 ```
 
@@ -258,15 +255,15 @@ iterateLinkedList()는 자료를 출력한다. 해당 로직 처리가 while 문
 
 ---
 
-두 개의 연결리스트를 하나의 연결리스트로 합쳐보자. 
+두 개의 연결리스트를 하나의 연결리스트로 합쳐보자.
 
-A 와 B 연결리스트가 있다고 하면  B의 자료를 모두 A의 뒤에 덧붙여 보겠다.  이 과정을 그림으로 나타내면 다음과 같다.
+A 와 B 연결리스트가 있다고 하면 B의 자료를 모두 A의 뒤에 덧붙여 보겠다. 이 과정을 그림으로 나타내면 다음과 같다.
 
-![Untitled](3%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%AF%E1%84%85%E1%85%B5%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%2089e117b9e88747f19caec6d2de75c5f3/Untitled%203.png)
+<img width="432" alt="image" src="https://user-images.githubusercontent.com/67476544/236379540-ae9902bb-c34e-484d-b2dc-18f69d560914.png">
 
 연결리스트 A와 B를 각각 pListA, pListB라 하고 pListA의 마지막 노드는 pNodeA, pListB의 마지막 노드는 pNodeB 이다. 연결된 직후의 모습은 아래 그림과 같다.
 
-![Untitled](3%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%AF%E1%84%85%E1%85%B5%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%2089e117b9e88747f19caec6d2de75c5f3/Untitled%204.png)
+<img width="402" alt="image" src="https://user-images.githubusercontent.com/67476544/236379569-99289d9f-2bf1-4b59-9f76-a1de4de07209.png">
 
 이렇게 A의 마지막 노드가 B의 첫번째 노드를 가리키고, 이제 pListB는 아무것도 가리키지 않는 빈 연결리스트가 되었다. 아래에서 연결리스트를 연결하는 코드를 보자.
 
