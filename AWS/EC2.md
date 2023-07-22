@@ -17,7 +17,8 @@
 
 아마 git 계정의 ssh키와 ec2 인스턴스의 ssh키가 달라서 그런거라 생각하고 https주소로 쓰려고 했더니 https 는 보안을 위한 각종 인증 방법들이 필요했고 토큰 생성, git 초기 설정등을 ec2 인스턴스에서 다시 하긴 귀찮아서 자문을 구했다.
 
-![Untitled](AWS%20EC2%20d59adac18304467ca447fb05915fc36a/Untitled%201.png)
+![image](https://github.com/JUNOSHON/TIL/assets/67476544/0f85ad6d-d84e-4588-a0e6-9db66a53f5c8)
+
 
 보통 ec2에 코드를 다운받으려면
 
