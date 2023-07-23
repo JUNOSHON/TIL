@@ -1,6 +1,6 @@
 # Airbnb JavaScript Style Guide
 
-업로드완료: No
+
 
 [https://github.com/tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
 
