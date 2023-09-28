@@ -32,11 +32,15 @@ Custom Hooks 는 말 그대로 ***사용자 정의 Hook*** 이라고 이해하�
 
 ---
 
-![Untitled](Custom%20Hooks%20502496b638f548c883a0e8264b8f32f3/Untitled.png)
+![Untitled](https://github.com/JUNOSHON/TIL/assets/67476544/ea9376d8-5ea0-48e0-82df-26d2b0c3c62c)
+
+
 
 본 강의에서는 data 폴더에 간단한 json 을 넣고, fetch해서 화면에 보여주는 비동기 통신 예제가 있다.
 
-![Untitled](Custom%20Hooks%20502496b638f548c883a0e8264b8f32f3/Untitled%201.png)
+![Untitled 1](https://github.com/JUNOSHON/TIL/assets/67476544/02f9566c-8e42-4e6f-9c69-22d1c570ddf3)
+
+
 
 개발자 도구의 Network 탭의 Slow 3G 를 이용해 비동기 요청이 수행되고 있는 동안 로딩중이라는 메시지를 클라이언트에게 보여주는 내용과, 에러 발생 시 에러를 보여주는 내용을 학습했다.
 
@@ -141,13 +145,15 @@ export default function useProducts({ salesOnly }) {
 
 Custom Hooks가 일반 컴포넌트와 다른 점이 있다.
 
-![Untitled](Custom%20Hooks%20502496b638f548c883a0e8264b8f32f3/Untitled%202.png)
+![Untitled 2](https://github.com/JUNOSHON/TIL/assets/67476544/f4c3e3de-1028-4639-96b5-e25748275d7a)
+
 
 위처럼 일반 컴포넌트는 return 에서 jsx를 반환한다.
 
 즉, 사용자가 보는 UI를 반환한다는 소리이다.
 
-![Untitled](Custom%20Hooks%20502496b638f548c883a0e8264b8f32f3/Untitled%203.png)
+![Untitled 3](https://github.com/JUNOSHON/TIL/assets/67476544/7d756e2c-4486-4037-b689-0ecdf4612da7)
+
 
 그러나 Custom Hooks는, 필요한 데이터를 반환한다.
 
@@ -163,7 +169,8 @@ Custom Hooks에 대해 강의 예제로 알아봤으니, 직접 Custom Hooks를 
 
 ---
 
-![Untitled](Custom%20Hooks%20502496b638f548c883a0e8264b8f32f3/Untitled%204.png)
+![Untitled 4](https://github.com/JUNOSHON/TIL/assets/67476544/7da39edc-e472-4c2d-a61b-0ae4ec5c390e)
+
 
 **→ React에서 Form 을 만들 때, `uncontrolled input` 이라는 Warning 이 있다.**
 
@@ -175,7 +182,8 @@ React의 철학은 ***“모든 상태 업데이트는 React에 의해 이루어
 
 따라서 React 에서 Form 을 만들 때는, 사용자가 input 태그에 값을 입력하면 useState의 setState 을 사용해 React에 의해 상태가 업데이트되게 해주곤 한다.
 
-![Untitled](Custom%20Hooks%20502496b638f548c883a0e8264b8f32f3/Untitled%205.png)
+![Untitled 5](https://github.com/JUNOSHON/TIL/assets/67476544/4232e74f-8172-457e-afb5-375cfa8b2bd8)
+
 
 위 처럼 각 input 태그에 값이 입력 될 때 마다 onChane Event 에서 useState의 setState 함수를 호출해 상태를 업데이트 한다.
 
@@ -187,13 +195,15 @@ React의 철학은 ***“모든 상태 업데이트는 React에 의해 이루어
 
 ---
 
-![Untitled](Custom%20Hooks%20502496b638f548c883a0e8264b8f32f3/Untitled%206.png)
+![Untitled 6](https://github.com/JUNOSHON/TIL/assets/67476544/cf516aa2-4a64-4c74-b678-5254b8cbb737)
+
 
 필자는 [**학교 기숙사 시스템을 리뉴얼 하는 프로젝트**](https://www.notion.so/Smart-Dormitory-426cfc79092f48348cf7baa5d70f4eb4?pvs=21)에 FE 개발자로 참여하면서, JWT 토큰을 사용한 로그인 시스템 구현을 하고있다.
 
 이 로그인 Form 의 onChane 로직을 useInput Custom Hooks로 분리하고자 한다.
 
-![Untitled](Custom%20Hooks%20502496b638f548c883a0e8264b8f32f3/Untitled%207.png)
+![Untitled 7](https://github.com/JUNOSHON/TIL/assets/67476544/3d4023b8-6b9c-4fac-8fb4-56b4dd6274b8)
+
 
 먼저 기존의 코드이다.
 
@@ -201,13 +211,15 @@ React의 철학은 ***“모든 상태 업데이트는 React에 의해 이루어
 
 따라서 14번과 17번 라인처럼 id의 입력이 onChange 될 때 실행할 onChangeId와 , 비밀번호의 입력이 onChange 될 때 실행할 onChangePwd 함수를 둘다 만들어줘야 했다.
 
-![Untitled](Custom%20Hooks%20502496b638f548c883a0e8264b8f32f3/Untitled%208.png)
+![Untitled 8](https://github.com/JUNOSHON/TIL/assets/67476544/8c7e50b2-c3f9-4ad3-837f-550ea4bec990)
+
 
 이를 useInputs 커스텀 훅으로 분리하면 위처럼 할 수 있다.
 
 useInputs 를 사용하면 입력받은 value와, 그 value를 업데이트 해주는 handleChange함수를 같이 반환해준다.
 
-![Untitled](Custom%20Hooks%20502496b638f548c883a0e8264b8f32f3/Untitled%209.png)
+![Untitled 9](https://github.com/JUNOSHON/TIL/assets/67476544/4d1a0a9a-5069-4213-8089-42915f5a4843)
+
 
 따라서 useInputs 를 사용하는 쪽에서는 handleChangeId 와 handleChangePassword를 직접 구현할 필요가 없다. useInputs에서 만들어서 반환해주기 때문에 그걸 사용하면 된다.
 
