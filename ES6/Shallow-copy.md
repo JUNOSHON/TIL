@@ -133,7 +133,8 @@ React는 state가 참조하는 주소값이 동일하면 state가 바뀌었다�
 
 하지만 이는 얕은복사이며, 1단계까지만 복사하므로 중첩객체를 복사할 수 없다는 단점이 있다.
 
-![Untitled](Shallow%20Copy%20vs%20Deep%20Copy%20610a385708b24279ac23a3bbba66e14c/Untitled.png)
+![Uploading image.png…]()
+
 
 따라서 저번 세미나 때 person 객체 안의 mentors 객체 안에 있는 배열 요소의 이름을 바꾸려고 했을 때 …person을 먼저 해주고 …mentor를 한 뒤에 바꾸려고 하는 [mentor.name](http://mentor.name) 을 변경한 것이다.
 
