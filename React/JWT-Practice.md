@@ -1,6 +1,5 @@
 # JWT Practice(Feat.Express)
 
-업로드완료: No
 
 ## 배경
 
@@ -111,7 +110,8 @@ app.listen(port, () => {
 
 ---
 
-![Untitled](<JWT%20Practice(Feat%20Express)%20b2aefcf4f0b545ef894b61f25cccbbd8/Untitled.png>)
+![image](https://github.com/JUNOSHON/TIL/assets/67476544/a3069280-2953-41d6-b66e-b220b7343a21)
+
 
 간단한 로그인 폼이다.
 
@@ -121,7 +121,8 @@ app.listen(port, () => {
 
 `/login` API에 로그인 요청이 가고, 응답으로 받아온 토큰을 localStorage에 저장한다.
 
-![Untitled](<JWT%20Practice(Feat%20Express)%20b2aefcf4f0b545ef894b61f25cccbbd8/Untitled%201.png>)
+![image](https://github.com/JUNOSHON/TIL/assets/67476544/3d0f13e4-2294-40e8-8ee7-24f13b547383)
+
 
 `→ login`
 
@@ -133,15 +134,18 @@ app.listen(port, () => {
 
 백엔드의 verify를 거쳐 유효한 토큰이라는 응답이 오면 토큰을 사용해 인증된 요청이 성공한 것이고, 아니면 실패했다는 메시지를 띄운다.
 
-![Untitled](<JWT%20Practice(Feat%20Express)%20b2aefcf4f0b545ef894b61f25cccbbd8/Untitled%202.png>)
+![image](https://github.com/JUNOSHON/TIL/assets/67476544/5d22d2b4-bbf4-4611-bf2c-f6cfdbd277c2)
+
 
 →jwt 토큰을 정상 발급받은 모습.
 
-![Untitled](<JWT%20Practice(Feat%20Express)%20b2aefcf4f0b545ef894b61f25cccbbd8/Untitled%203.png>)
+![image](https://github.com/JUNOSHON/TIL/assets/67476544/8e78f45a-f06b-4cd3-bc22-7130f783707a)
+
 
 → 로컬 스토리지에 저장되어 있다.
 
-![Untitled](<JWT%20Practice(Feat%20Express)%20b2aefcf4f0b545ef894b61f25cccbbd8/Untitled%204.png>)
+![image](https://github.com/JUNOSHON/TIL/assets/67476544/0822df08-b194-4e57-9f62-db8f25d86d40)
+
 
 → 인증된 요청 성공
 
@@ -149,7 +153,8 @@ app.listen(port, () => {
 
 ---
 
-![Untitled](<JWT%20Practice(Feat%20Express)%20b2aefcf4f0b545ef894b61f25cccbbd8/Untitled%205.png>)
+![image](https://github.com/JUNOSHON/TIL/assets/67476544/32a93ee3-d46d-440c-98ca-b1fb57effe11)
+
 
 토큰의 유효성을 검증하는 과정에서 오류가 있었다.
 
